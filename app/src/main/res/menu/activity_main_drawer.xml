@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    //Navigation 열면 있는 메뉴 설정
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_myinfo"
+            android:icon="@mipmap/profile"
+            android:title="My Info" />
+        <item
+            android:id="@+id/nav_myfood_reg"
+            android:icon="@mipmap/dish"
+            android:title="My Food Reg" />
+        <item
+            android:id="@+id/nav_myexercise_reg"
+            android:icon="@mipmap/weightlifting1"
+            android:title="My Exercise Reg" />
+        <item
+            android:id="@+id/nav_nammukfood"
+            android:icon="@mipmap/food"
+            android:title="Nammuk Food" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@mipmap/set"
+            android:title="Setting" />
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@mipmap/question"
+            android:title="About Us" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/arrows"
+            android:title="Log Out" />
+    </group>
+
+</menu>
