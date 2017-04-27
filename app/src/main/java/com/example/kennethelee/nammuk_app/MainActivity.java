@@ -79,7 +79,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_myinfo) {
-            // Handle the camera action
+            // My정보 보기
+            Intent intent = new Intent(this, MyInfoActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_myfood_reg) {
 
         } else if (id == R.id.nav_myexercise_reg) {
