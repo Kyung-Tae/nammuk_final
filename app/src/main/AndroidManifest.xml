@@ -55,6 +55,15 @@
             </intent-filter>
         </activity>
 
+        //남먹 음식 액티비티 등록
+        <activity android:name=".NammukfoodActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

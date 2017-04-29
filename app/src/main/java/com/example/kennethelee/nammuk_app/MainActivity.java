@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_myexercise_reg) {
 
         } else if (id == R.id.nav_nammukfood) {
-
+            //남먹음식 보기
+            Intent intent = new Intent(this, NammukfoodActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_aboutus) {
