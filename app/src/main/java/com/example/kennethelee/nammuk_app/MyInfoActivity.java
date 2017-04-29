@@ -1,5 +1,6 @@
 package com.example.kennethelee.nammuk_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,8 +24,15 @@ public class MyInfoActivity extends AppCompatActivity {
             }
         });
 
+        //수정버튼 누르면 수정화면 가기
+        Button buttonChange = (Button) findViewById(R.id.button_change_myinfo);
+        buttonChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyInfoActivity.this, MyInfoChangeActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
-
-
-
 }

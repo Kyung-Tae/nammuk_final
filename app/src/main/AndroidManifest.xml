@@ -46,6 +46,17 @@
             </intent-filter>
         </activity>
 
+        //My정보수정 액티비티 등록
+        <activity android:name=".MyInfoChangeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 </manifest>
