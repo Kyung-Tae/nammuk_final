@@ -68,5 +68,13 @@
     <string name="AboutUsText1">오류 발생, 수정 요청 시</string>
     <string name="AboutUsText2">위의 연락처로 연락주세요:)</string>
 
+    <!--메인화면에 들어갈 String-->
+    <string name="LeftKcal">1300KCAL</string>
+    <string name="SpentKcal">1300KCAL</string>
+    <string name="PigKcal">752KCAL</string>
+    <string name="KcalPercent">50%</string>
+
+
+
     <string name="action_settings">Settings</string>
 </resources>
