@@ -58,6 +58,15 @@
     <string name="InitRecord">기록 초기화</string>
     <string name="UserAlarmHint">19:00</string>
 
+    <!--About Us에 들어갈 String-->
+    <string name="AboutUs">ABOUT US</string>
+    <string name="Copyright">Copyrights by</string>
+    <string name="LSH">Lee Seung Hee</string>
+    <string name="MailLSH">kevinlee5228@gmail.com</string>
+    <string name="KKT">Kim Kyung Tae</string>
+    <string name="MailKKT">speed9640@naver.com</string>
+    <string name="AboutUsText1">오류 발생, 수정 요청 시</string>
+    <string name="AboutUsText2">위의 연락처로 연락주세요:)</string>
 
     <string name="action_settings">Settings</string>
 </resources>

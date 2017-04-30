@@ -91,11 +91,13 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, NammukfoodActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_setting) {
-            //설정
+            //설정 보기
             Intent intent = new Intent(this, SettingActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_aboutus) {
-
+            //About Us 보기
+            Intent intent = new Intent(this, AboutUsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
