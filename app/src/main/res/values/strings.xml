@@ -36,7 +36,14 @@
     <string name="Complete">완료</string>
     <string name="Nickname">닉네임</string>
 
-
+    <!--남묵음식에 들어갈 String-->
+    <string name="NammukFood">남먹 음식</string>
+    <string name="MissionProgress">251번째 미션 진행중...</string>
+    <string name="KcalProgress">510KCAL / 780KCAL</string>
+    <string name="Brand">BURGERKING</string>
+    <string name="FName">콰트로 치즈 와퍼</string>
+    <string name="KcalPerOne">780 KCAL / 1개</string>
+    <string name="ClassInfo">계급 정보</string>
 
 
     <string name="action_settings">Settings</string>
