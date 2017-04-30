@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <ToggleButton
+        android:id="@+id/toggleButton_setting_pedometer"
+        android:layout_width="67dp"
+        android:layout_height="26dp"
+        android:background="@drawable/wrap_whitebox"
+        android:text="ToggleButton"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView39"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="@+id/imageView14" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="381dp"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/button_setting_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="88dp"
+        android:layout_height="52dp"
+        android:background="@android:color/transparent"
+        android:text="@string/Cancel"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/toolbar3"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/toolbar3" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="71dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/Setting"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_setting_cancel"
+        app:layout_constraintLeft_toRightOf="@+id/button_setting_cancel"
+        android:layout_marginLeft="70dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="349dp"
+        android:layout_height="48dp"
+        android:background="@drawable/wrap_pinkbox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="349dp"
+        android:layout_height="81dp"
+        android:background="@drawable/wrap_pinkbox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="347dp"
+        android:layout_height="48dp"
+        android:background="@drawable/wrap_pinkbox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="351dp"
+        android:layout_height="86dp"
+        android:background="@drawable/wrap_pinkbox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="347dp"
+        android:layout_height="48dp"
+        android:background="@drawable/wrap_pinkbox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton_setting_alarm"
+        android:layout_width="67dp"
+        android:layout_height="26dp"
+        android:background="@drawable/wrap_whitebox"
+        android:checked="true"
+        android:text="ToggleButton"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView37"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="@+id/imageView12" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="352dp"
+        android:layout_height="44dp"
+        android:background="@drawable/wrap_pinkbox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/LockingScreen"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/DietSaying"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView11" />
+
+    <EditText
+        android:id="@+id/editText_setting_saying"
+        android:layout_width="321dp"
+        android:layout_height="39dp"
+        android:background="@drawable/wrap_whitebox"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:text="@string/UserSaying"
+        android:textColor="#ff6161"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView11"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NammukAlarm"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AlarmSetting"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/imageView13"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView13" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pedometer"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/imageView14"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@mipmap/question"
+        android:backgroundTint="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView35"
+        app:layout_constraintLeft_toRightOf="@+id/textView35"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@mipmap/question"
+        android:backgroundTint="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView38"
+        app:layout_constraintLeft_toRightOf="@+id/textView38"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@mipmap/question"
+        android:backgroundTint="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView39"
+        app:layout_constraintLeft_toRightOf="@+id/textView39"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="321dp"
+        android:layout_height="39dp"
+        android:background="@drawable/wrap_whitebox"
+        android:ems="10"
+        android:hint="@string/UserAlarmHint"
+        android:inputType="time"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="#ff6161"
+        android:textColorHint="#ff6161"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView13" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton_setting_lock"
+        android:layout_width="67dp"
+        android:layout_height="26dp"
+        android:background="@drawable/wrap_whitebox"
+        android:checked="true"
+        android:text="ToggleButton"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView35"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="@+id/imageView10" />
+
+    <Button
+        android:id="@+id/button_setting_init"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:text="@string/InitRecord"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@+id/button_setting_complete"
+        android:layout_marginRight="0dp"
+        app:layout_constraintTop_toTopOf="@+id/imageView15"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView15" />
+
+    <Button
+        android:id="@+id/button_setting_complete"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:text="@string/Complete"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_setting_init"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/imageView15" />
+
+</android.support.constraint.ConstraintLayout>

@@ -45,6 +45,19 @@
     <string name="KcalPerOne">780 KCAL / 1개</string>
     <string name="ClassInfo">계급 정보</string>
 
+    <!--Setting에 들어갈 String-->
+    <string name="Setting">설정</string>
+    <string name="LockingScreen">잠금화면 표시</string>
+    <string name="ON">ON</string>
+    <string name="OFF">OFF</string>
+    <string name="DietSaying">다이어트 문구 추가</string>
+    <string name="UserSaying">보아라.. 치킨이다..</string>
+    <string name="NammukAlarm">남겨먹자 알람</string>
+    <string name="AlarmSetting">알람 시간 설정</string>
+    <string name="pedometer">자동 만보기 모드</string>
+    <string name="InitRecord">기록 초기화</string>
+    <string name="UserAlarmHint">19:00</string>
+
 
     <string name="action_settings">Settings</string>
 </resources>
