@@ -74,7 +74,11 @@
     <string name="PigKcal">752KCAL</string>
     <string name="KcalPercent">50%</string>
 
-
+    <!--로그인화면에 들어갈 String-->
+    <string name="RegisterFirst">아직 회원가입을 안하셨나요?</string>
+    <string name="Login">로그인</string>
+    <string name="ID">아이디</string>
+    <string name="Password">비밀번호</string>
 
     <string name="action_settings">Settings</string>
 </resources>
