@@ -11,13 +11,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
+
+import static com.example.kennethelee.nammuk_app.R.id.add_fab;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    //등록버튼
+    private Boolean isFabOpen = false;
+    private FloatingActionButton fab,fab_food,fab_exer;
+    private Animation fab_open,fab_close,rotate_forward,rotate_backward;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +36,35 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //오른쪽하단 추가버튼
-        FloatingActionButton add_fab = (FloatingActionButton) findViewById(R.id.add_fab);
-        add_fab.setOnClickListener(new View.OnClickListener() {
+        //등록버튼
+        fab = (FloatingActionButton) findViewById(add_fab);
+        fab_food = (FloatingActionButton)findViewById(R.id.fab_food);
+        fab_exer = (FloatingActionButton)findViewById(R.id.fab_exer);
+        fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        rotate_forward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_forward);
+        rotate_backward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_backward);
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "등록버튼입니다", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "등록버튼입니다", Toast.LENGTH_SHORT).show();
+                int id = view.getId();
+                switch (id){
+                    case R.id.add_fab:
+
+                        animateFAB();
+                        break;
+                    case R.id.fab_food:
+
+                        Log.d("KT", "Fab_food");
+                        break;
+                    case R.id.fab_exer:
+
+                        Log.d("KT", "Fab_exer");
+                        break;
+                }
             }
         });
 
@@ -113,6 +146,33 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void animateFAB(){
+
+        if(isFabOpen){
+
+            fab.startAnimation(rotate_backward);
+            fab_exer.setVisibility(View.VISIBLE);
+            fab_food.setVisibility(View.VISIBLE);
+            fab_food.startAnimation(fab_close);
+            fab_exer.startAnimation(fab_close);
+            fab_food.setClickable(false);
+            fab_exer.setClickable(false);
+            isFabOpen = false;
+            Log.d("KT", "close");
+
+        } else {
+
+            fab.startAnimation(rotate_forward);
+            fab_food.startAnimation(fab_open);
+            fab_exer.startAnimation(fab_open);
+            fab_food.setClickable(true);
+            fab_exer.setClickable(true);
+            isFabOpen = true;
+            Log.d("KT","open");
+
+        }
     }
 
 
