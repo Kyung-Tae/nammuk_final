@@ -80,5 +80,16 @@
     <string name="ID">아이디</string>
     <string name="Password">비밀번호</string>
 
+    <!--가입화면에 들어갈 String-->
+    <string name="UserRegister">회원가입</string>
+    <string name="IDEmail">아이디(E-MAIL)</string>
+    <string name="PasswordSix">비밀번호(최소6글자)</string>
+    <string name="PasswordConfirm">비밀번호 확인</string>
+    <string name="DuplicationTest">중복검사</string>
+    <string name="Next">다음</string>
+    <string name="BodyInfo">신체정보</string>
+
+
+
     <string name="action_settings">Settings</string>
 </resources>
