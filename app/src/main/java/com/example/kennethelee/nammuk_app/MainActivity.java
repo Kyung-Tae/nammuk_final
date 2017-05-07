@@ -120,7 +120,9 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, MyFoodActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_myexercise_reg) {
-
+            //My운동 보기
+            Intent intent = new Intent(this, MyExerciseActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_nammukfood) {
             //남먹음식 보기
             Intent intent = new Intent(this, NammukfoodActivity.class);
