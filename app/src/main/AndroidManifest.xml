@@ -82,14 +82,24 @@
             </intent-filter>
         </activity>
 
-    //About Us 액티비티 등록
-    <activity android:name=".AboutUsActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        //About Us 액티비티 등록
+         <activity android:name=".AboutUsActivity">
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        //Myfood 액티비티 등록
+        <activity android:name=".MyFoodActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
 </application>
 

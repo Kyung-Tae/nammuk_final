@@ -89,6 +89,11 @@
     <string name="Next">다음</string>
     <string name="BodyInfo">신체정보</string>
 
+    <!--My식단에 들어갈 string-->
+    <string name="MyFood">My 식단</string>
+    <string name="Add">추가</string>
+    <string name="Delete">삭제</string>
+
 
 
     <string name="action_settings">Settings</string>

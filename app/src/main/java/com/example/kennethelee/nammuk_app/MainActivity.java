@@ -116,7 +116,9 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, MyInfoActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_myfood_reg) {
-
+            //My식단 보기
+            Intent intent = new Intent(this, MyFoodActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_myexercise_reg) {
 
         } else if (id == R.id.nav_nammukfood) {
