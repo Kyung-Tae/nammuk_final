@@ -15,13 +15,13 @@ import java.util.ArrayList;
  * Created by speed on 2017-05-07.
  */
 
-public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
+public class MyCustomAdapter_withdelete extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list = new ArrayList<String>();
     private Context context;
 
 
 
-    public MyCustomAdapter(ArrayList<String> list, Context context) {
+    public MyCustomAdapter_withdelete(ArrayList<String> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -47,7 +47,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.custom_listitem, null);
+            view = inflater.inflate(R.layout.custom_listitem_withdelete, null);
         }
 
         //Handle TextView and display string from your list

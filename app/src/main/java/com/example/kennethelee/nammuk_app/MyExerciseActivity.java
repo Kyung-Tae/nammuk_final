@@ -28,7 +28,7 @@ public class MyExerciseActivity extends ListActivity {
         list.add("item2");
 
         //instantiate custom adapter
-        MyCustomAdapter adapter = new MyCustomAdapter(list, this);
+        MyCustomAdapter_withdelete adapter = new MyCustomAdapter_withdelete(list, this);
 
         //handle listview and assign adapter
         ListView lView = (ListView)findViewById(android.R.id.list);

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button_myfoodadd_search"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="0dp"
+        android:background="@android:drawable/ic_menu_search"
+        app:layout_constraintRight_toLeftOf="@+id/button_myfoodadd_camera"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5" />
+
+    <Button
+        android:id="@+id/button_myfoodadd_camera"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="0dp"
+        android:background="@android:drawable/ic_menu_camera"
+        app:layout_constraintRight_toLeftOf="@+id/button_myfoodadd_makemy"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5" />
+
+    <Button
+        android:id="@+id/button_myfoodadd_makemy"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:drawable/ic_menu_edit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar5"
+        android:layout_width="384dp"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="@+id/textView55"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_myfoodadd_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="@string/Cancel"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView55"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="153dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="@string/MyFoodAdd"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="384dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar5" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/wrap_whitebox"
+        android:ems="10"
+        android:hint="@string/SearchHint"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView22"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView55"
+        app:layout_constraintRight_toLeftOf="@+id/button_myfoodadd_search"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:divider="@drawable/wrap_pinkborder"
+        android:dividerHeight="5.0sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22"></ListView>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -94,6 +94,11 @@
     <string name="Add">추가</string>
     <string name="Delete">삭제</string>
 
+    <!--My식단추가에 들어갈 string-->
+    <string name="MyFoodAdd">MY 식단 추가</string>
+    <string name="SearchHint">검색어를 입력하세요</string>
+    <string name="Register">등록</string>
+
     <!--My운동에 들어갈 string-->
     <string name="MyExercise">MY 운동</string>
 
