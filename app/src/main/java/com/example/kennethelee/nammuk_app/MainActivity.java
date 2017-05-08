@@ -3,6 +3,7 @@ package com.example.kennethelee.nammuk_app;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,7 +18,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.hookedonplay.decoviewlib.DecoView;
+import com.hookedonplay.decoviewlib.charts.SeriesItem;
+import com.hookedonplay.decoviewlib.events.DecoEvent;
 
 import static com.example.kennethelee.nammuk_app.R.id.add_fab;
 
@@ -76,6 +82,38 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        // 메인화면 게이지바 코드
+        DecoView decoView = (DecoView) findViewById(R.id.dynamicArcView);
+
+        final SeriesItem seriesItem = new SeriesItem.Builder(Color.parseColor("#FFFF8800"))
+                .setRange(0, 50, 0)
+                .build();
+
+        int series1Index = decoView.addSeries(seriesItem);
+
+        final TextView textPercentage = (TextView) findViewById(R.id.textPercentage);
+        seriesItem.addArcSeriesItemListener(new SeriesItem.SeriesItemListener() {
+            @Override
+            public void onSeriesItemAnimationProgress(float percentComplete, float currentPosition) {
+                float percentFilled = ((currentPosition - seriesItem.getMinValue()) / (seriesItem.getMaxValue() - seriesItem.getMinValue()));
+                textPercentage.setText(String.format("%.0f%%", percentFilled * 100f));
+            }
+            @Override
+            public void onSeriesItemDisplayProgress(float percentComplete) {
+            }
+        });
+
+        decoView.addEvent(new DecoEvent.Builder(16.3f)
+                .setIndex(series1Index)
+                .setDelay(5000)
+                .build());
+
+        decoView.addEvent(new DecoEvent.Builder(30f)
+                .setIndex(series1Index)
+                .setDelay(10000)
+                .build());
     }
 
     @Override
