@@ -30,6 +30,7 @@ public class MyFoodActivity extends ListActivity {
         //instantiate custom adapter
         MyCustomAdapter adapter = new MyCustomAdapter(list, this);
 
+
         //handle listview and assign adapter
         ListView lView = (ListView)findViewById(android.R.id.list);
         lView.setAdapter(adapter);

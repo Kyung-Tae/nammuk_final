@@ -15,7 +15,8 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="0dp" />
 
     <Button
         android:id="@+id/button_myfood_cancel"
@@ -60,6 +61,8 @@
 
     <ListView
         android:id="@android:id/list"
+        android:divider="@drawable/wrap_pinkborder"
+        android:dividerHeight="5.0sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"

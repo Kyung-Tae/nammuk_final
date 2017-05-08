@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     http://blog.naver.com/PostView.nhn?blogId=rain483&logNo=220812563378&parentCategoryNo=&categoryNo=16&viewDate=&isShowPopularPosts=false&from=postView
     */
 
-    //
+
 
     //변수지정
     EditText id, pwd;
