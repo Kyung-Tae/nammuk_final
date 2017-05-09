@@ -1,6 +1,7 @@
 package com.example.kennethelee.nammuk_app;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -78,6 +79,10 @@ public class MyFoodAddActivity extends ListActivity {
             public void onClick(View view) {
                 //내 메뉴 만드는 레이아웃
                 Toast.makeText(MyFoodAddActivity.this, "마이메뉴기능입니다", Toast.LENGTH_SHORT).show();
+                //내 식단 화면 보여주기
+                Intent intent = new Intent(MyFoodAddActivity.this, MyFoodAddRecordActivity.class);
+                startActivity(intent);
+
             }
         });
     }

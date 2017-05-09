@@ -99,9 +99,18 @@
     <string name="SearchHint">검색어를 입력하세요</string>
     <string name="Register">등록</string>
 
+    <!--My식단기록에 들어갈 string-->
+    <string name="MyFoodRecord">나만의 식단 기록</string>
+    <string name="FoodName">음식 이름</string>
+    <string name="KTFood">(ex. 경태표부대찌개)</string>
+    <string name="UnitName">단위 이름(ex. 그릇)</string>
+    <string name="GramHint">1단위는 몇그램?(ex. 150g)</string>
+    <string name="MinUnit">최소 단위</string>
+    <string name="Calorie">칼로리</string>
+    <string name="CalorieHint">(ex. 200)</string>
+
     <!--My운동에 들어갈 string-->
     <string name="MyExercise">MY 운동</string>
-
 
 
     <string name="action_settings">Settings</string>
