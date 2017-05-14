@@ -109,6 +109,15 @@
     <string name="Calorie">칼로리</string>
     <string name="CalorieHint">(ex. 200)</string>
 
+    <!--fabfood에 들어갈 string-->
+    <string name="fabfoodToday">오늘</string>
+    <string name="fabfoodMorning">아침</string>
+    <string name="fabfoodLunch">점심</string>
+    <string name="fabfoodDinner">저녁</string>
+    <string name="fabfoodSupper">간식/기타</string>
+    <string name="fabfoodTotal">TOTAL</string>
+
+
     <!--My운동에 들어갈 string-->
     <string name="MyExercise">MY 운동</string>
     <string name="MyExerciseAdd">MY 운동 추가</string>

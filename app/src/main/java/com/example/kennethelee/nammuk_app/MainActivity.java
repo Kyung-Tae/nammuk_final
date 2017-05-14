@@ -74,6 +74,22 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        //음식 fab버튼 action
+        fab_food.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "음식버튼입니다", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, FabFoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //운동 fab버튼 action
+        fab_exer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "운동버튼입니다", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

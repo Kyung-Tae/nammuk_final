@@ -110,6 +110,16 @@
             </intent-filter>
         </activity>
 
+        //Fabfood 액티비티 등록
+        <activity android:name=".FabFoodActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         //MyExcercise 액티비티 등록
         <activity android:name=".MyExerciseActivity">
             <intent-filter>
