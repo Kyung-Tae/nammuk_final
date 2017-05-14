@@ -119,8 +119,26 @@
             </intent-filter>
         </activity>
 
-        //MyExcercise 액티비티 등록
+        //MyFoodAddRecord 액티비티 등록
         <activity android:name=".MyFoodAddRecordActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        //MyExcercise 액티비티 등록
+        <activity android:name=".MyExerciseAddActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        //MyExcercise 액티비티 등록
+        <activity android:name=".MyExerciseAddRecordActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

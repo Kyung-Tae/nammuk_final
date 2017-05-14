@@ -111,7 +111,14 @@
 
     <!--My운동에 들어갈 string-->
     <string name="MyExercise">MY 운동</string>
-
+    <string name="MyExerciseAdd">MY 운동 추가</string>
+    <string name="MyExerciseRecord">나만의 운동 기록</string>
+    <string name="ExerciseName">운동 이름</string>
+    <string name="NeedCalorie">칼로리 소모량</string>
+    <string name="SHExercise">(ex.승희특제버핏테스트)</string>
+    <string name="ExerciseUnitName">단위 이름(ex. 세트 or 분)</string>
+    <string name="UnitNumber">1단위는 몇 회?(ex.15회)</string>
+    <string name="CalUnit">(ex. 40KCAL)</string>
 
     <string name="action_settings">Settings</string>
 </resources>
