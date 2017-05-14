@@ -129,5 +129,11 @@
     <string name="UnitNumber">1단위는 몇 회?(ex.15회)</string>
     <string name="CalUnit">(ex. 40KCAL)</string>
 
+    <!--fabexercise에 들어갈 string-->
+    <string name="fabexerciseToday">오늘</string>
+    <string name="fabexerciseAnaerobic">무산소운동</string>
+    <string name="fabexerciseAerobic">유산소운동</string>
+    <string name="fabexerciseTotal">TOTAL</string>
+
     <string name="action_settings">Settings</string>
 </resources>

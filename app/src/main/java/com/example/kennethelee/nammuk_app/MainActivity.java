@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity
         fab_exer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "운동버튼입니다", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, FabExerciseActivity.class);
+                startActivity(intent);
             }
         });
 
