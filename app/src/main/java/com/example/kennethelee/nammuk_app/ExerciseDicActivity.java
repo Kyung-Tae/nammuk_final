@@ -85,7 +85,7 @@ public class ExerciseDicActivity extends ListActivity {
             public void onClick(View view) {
                 //내 메뉴 만드는 레이아웃
                 Toast.makeText(ExerciseDicActivity.this, "마이메뉴기능입니다", Toast.LENGTH_SHORT).show();
-                //내 식단 화면 보여주기
+                //내 운동화면 보여주기
                 Intent intent = new Intent(ExerciseDicActivity.this, MyExerciseActivity.class);
                 startActivity(intent);
 
