@@ -8,7 +8,7 @@
     <Button
         android:id="@+id/button_myfoodadd_search"
         android:layout_width="30dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:background="@android:drawable/ic_menu_search"
@@ -18,22 +18,22 @@
     <Button
         android:id="@+id/button_myfoodadd_camera"
         android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="0dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         android:background="@android:drawable/ic_menu_camera"
-        app:layout_constraintRight_toLeftOf="@+id/button_myfoodadd_makemy"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText5" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5"
+        app:layout_constraintRight_toLeftOf="@+id/button_myfoodadd_makemy" />
 
     <Button
         android:id="@+id/button_myfoodadd_makemy"
         android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="16dp"
         android:background="@android:drawable/ic_menu_edit"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText5" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar5"
@@ -93,7 +93,7 @@
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/wrap_whitebox"
@@ -106,7 +106,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView55"
         app:layout_constraintRight_toLeftOf="@+id/button_myexerciseadd_search"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintVertical_bias="0.0" />
 

@@ -136,4 +136,11 @@
     <string name="fabexerciseTotal">TOTAL</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--dropdown menu에 들어갈 string-->
+    <string-array name="android_dropdown_arrays">
+        <item>유산소운동</item>
+        <item>무산소운동</item>
+    </string-array>
+
 </resources>

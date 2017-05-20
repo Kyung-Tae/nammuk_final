@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <Button
+        android:id="@+id/button_exercisedic_search"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:drawable/ic_menu_search"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5"
+        app:layout_constraintRight_toLeftOf="@+id/button_exercisedic_makemy"
+        android:layout_marginRight="0dp" />
+
+    <Button
+        android:id="@+id/button_exercisedic_makemy"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:drawable/ic_menu_edit"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText5" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar5"
+        android:layout_width="384dp"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp" />
+
+    <Button
+        android:id="@+id/button_exercisedic_myexercise"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/MyExercise"
+        android:textColor="@android:color/white"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="4dp" />
+
+    <Button
+        android:id="@+id/button_exercisedic_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/Cancel"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="4dp" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="384dp"
+        android:layout_height="52dp"
+        android:background="?attr/colorPrimary"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar5"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:background="@drawable/wrap_whitebox"
+        android:ems="10"
+        android:hint="@string/SearchHint"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView22"
+        app:layout_constraintTop_toTopOf="@+id/imageView22"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView22"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#d11f08"
+        android:entries="@array/android_dropdown_arrays"
+        android:padding="5dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar5" />
+
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/wrap_pinkborder"
+        android:dividerHeight="5.0sp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"></ListView>
+
+
+</android.support.constraint.ConstraintLayout>
