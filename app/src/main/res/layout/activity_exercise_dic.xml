@@ -98,7 +98,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#d11f08"
+        android:backgroundTint="@android:color/holo_orange_light"
         android:entries="@array/android_dropdown_arrays"
         android:padding="5dp"
         android:textAlignment="center"
