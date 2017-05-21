@@ -148,7 +148,16 @@
             </intent-filter>
         </activity>
 
-        //MyExerciseDic 액티비티 등록
+        //MyExerciseAddRecord 액티비티 등록
+        <activity android:name=".MyExerciseAddRecordActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        //ExerciseDic 액티비티 등록
         <activity android:name=".ExerciseDicActivity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
