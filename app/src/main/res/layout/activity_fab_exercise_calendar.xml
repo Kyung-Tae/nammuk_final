@@ -59,7 +59,7 @@
         android:orientation="horizontal" />
 
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/calendarView_exercise"
         android:layout_width="375dp"
         android:layout_height="500dp"
         android:layout_marginBottom="0dp"

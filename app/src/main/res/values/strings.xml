@@ -143,7 +143,16 @@
         <item>무산소운동</item>
     </string-array>
 
+    <!--dropdown menu에 들어갈 string-->
+    <string-array name="android_dropdown_arrays2">
+        <item>아침</item>
+        <item>점심</item>
+        <item>저녁</item>
+        <item>간식</item>
+    </string-array>
+
     <!--fabexercisecalendar에 들어갈 string-->
     <string name="fabexercisecalendar">달력</string>
+
 
 </resources>

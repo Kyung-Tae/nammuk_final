@@ -176,8 +176,29 @@
             </intent-filter>
         </activity>
 
+        //FoodDic 액티비티 등록
+        <activity android:name=".FoodDicActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         //FabExerciseCalendar 액티비티 등록
         <activity android:name=".FabExerciseCalendarActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        //FabFoodCalendar 액티비티 등록
+        <activity android:name=".FabFoodCalendarActivity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

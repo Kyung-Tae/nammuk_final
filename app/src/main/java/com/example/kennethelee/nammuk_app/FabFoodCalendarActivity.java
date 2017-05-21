@@ -7,17 +7,16 @@ import android.widget.Button;
 import android.widget.CalendarView;
 
 /**
- * Created by speed on 2017-04-27.
+ * Created by User on 2017-05-21.
  */
-//
 
-public class FabExerciseCalendarActivity extends AppCompatActivity {
+public class FabFoodCalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fab_exercise_calendar);
+        setContentView(R.layout.activity_fab_food_calendar);
 
         //취소버튼 누르면 화면 나가기
-        Button buttonCancel = (Button) findViewById(R.id.button_calendar_cancel);
+        Button buttonCancel = (Button) findViewById(R.id.button_foodcalendar_cancel);
         buttonCancel.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -25,7 +24,9 @@ public class FabExerciseCalendarActivity extends AppCompatActivity {
             }
         });
 
-        CalendarView cal = (CalendarView) findViewById(R.id.calendarView_exercise);
+        CalendarView cal = (CalendarView) findViewById(R.id.calendarView_food);
         cal.setMaxDate(cal.getDate());
+
+
     }
 }
