@@ -143,4 +143,7 @@
         <item>무산소운동</item>
     </string-array>
 
+    <!--fabexercisecalendar에 들어갈 string-->
+    <string name="fabexercisecalendar">달력</string>
+
 </resources>
