@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "602779752668",
+    "firebase_url": "https://nammukfinal.firebaseio.com",
+    "project_id": "nammukfinal",
+    "storage_bucket": "nammukfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602779752668:android:e338f356280b91f3",
+        "android_client_info": {
+          "package_name": "com.example.kennethelee.nammuk_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602779752668-jie80kb4c5cgmpdscc5l3avraka104vh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kennethelee.nammuk_app",
+            "certificate_hash": "1e8f0729cd99a80811674fddf0b428c024aaa04b"
+          }
+        },
+        {
+          "client_id": "602779752668-p0vm4l3fjhujv0sr8rn0p1kunfvkki5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVI2maySAaaV-n61DWJcz0jEEUAtmIc1s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602779752668-p0vm4l3fjhujv0sr8rn0p1kunfvkki5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
