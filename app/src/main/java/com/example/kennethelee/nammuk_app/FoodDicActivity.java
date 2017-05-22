@@ -1,14 +1,19 @@
 package com.example.kennethelee.nammuk_app;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 
@@ -28,6 +33,10 @@ public class FoodDicActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_dic);
+
+        //zxing code 예제에 있어서 추가
+        final Activity activity = this;
+
 
         //list array로 받아서 보여주기(DB로 추후에 받아오는 것으로 변경해야함)
         //generate list
@@ -72,9 +81,20 @@ public class FoodDicActivity extends ListActivity {
             @Override
             public void onClick(View view) {
                 //카메라기능
-                Toast.makeText(FoodDicActivity.this, "카메라기능입니다", Toast.LENGTH_SHORT).show();
+
+
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Scan");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
+
             }
         });
+
+
 
         //내 메뉴 만들기 버튼
         makemyfoodbtn = (Button) findViewById(R.id.button_fooddic_makemy);
@@ -131,4 +151,22 @@ public class FoodDicActivity extends ListActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Log.d("MainActivity", "Cancelled scan");
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Log.d("MainActivity", "Scanned");
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 }
+
+
