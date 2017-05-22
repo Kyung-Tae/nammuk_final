@@ -1,8 +1,6 @@
 package com.example.kennethelee.nammuk_app;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
@@ -35,12 +34,16 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fab,fab_food,fab_exer;
     private Animation fab_open,fab_close,rotate_forward,rotate_backward;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         //등록버튼
         fab = (FloatingActionButton) findViewById(add_fab);
@@ -194,12 +197,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-            SharedPreferences.Editor editor = auto.edit();
-            //editor.clear()는 auto에 들어있는 모든 정보를 기기에서 지웁니다.
-            editor.clear();
-            editor.commit();
-            Toast.makeText(MainActivity.this, "로그아웃", Toast.LENGTH_SHORT).show();
+            //로그아웃
+            FirebaseAuth.getInstance().signOut();
             finish();
         }
 

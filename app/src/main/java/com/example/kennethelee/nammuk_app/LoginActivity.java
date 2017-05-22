@@ -4,15 +4,20 @@ package com.example.kennethelee.nammuk_app;
  * Created by Kennethe Lee on 2017-04-24.
  */
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,12 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     http://blog.naver.com/PostView.nhn?blogId=rain483&logNo=220812563378&parentCategoryNo=&categoryNo=16&viewDate=&isShowPopularPosts=false&from=postView
     */
 
-
-
     //변수지정
-    EditText id, pwd;
-    Button loginBtn, registerBtn;
-    String loginId, loginPwd;
+    private EditText mEmailField, mPasswordField;
+    private Button mLoginBtn, registerBtn;
+    //private String loginId, loginPwd;
+
+    private FirebaseAuth mAuth;
+
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,50 +41,32 @@ public class LoginActivity extends AppCompatActivity {
         //login xml로 변경
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
         //아이디를 찾기
-        id = (EditText) findViewById(R.id.EmailField);
-        pwd = (EditText) findViewById(R.id.PasswordField);
-        loginBtn = (Button) findViewById(R.id.loginbutton);
+        mEmailField = (EditText) findViewById(R.id.EmailField);
+        mPasswordField = (EditText) findViewById(R.id.PasswordField);
+        mLoginBtn = (Button) findViewById(R.id.loginbutton);
         registerBtn = (Button) findViewById(R.id.RegisterButton);
-        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
 
-        //로그인 초기값
-        loginId = auto.getString("inputId", null);
-        loginPwd = auto.getString("inputPwd", null);
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
-        //테스트값 추후에 DB에서 가져오는 것으로 변경해야함
-        if (loginId != null && loginPwd != null) {
-            if (loginId.equals("nammuk") && loginPwd.equals("1234")) {
-                Toast.makeText(LoginActivity.this, loginId + "님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        } else if (loginId == null && loginPwd == null) {
-            loginBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (id.getText().toString().equals("nammuk") && pwd.getText().toString().equals("1234")) {
-                        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-                        //아이디가 '김경태'이고 비밀번호가 '1234'일 경우 SharedPreferences.Editor를 통해
-                        //auto의 loginId와 loginPwd에 값을 저장해 줍니다.
-                        //에뮬의 한글자판 부재로 아이디 nammuk으로 변경
-                        SharedPreferences.Editor autoLogin = auto.edit();
-                        autoLogin.putString("inputId", id.getText().toString());
-                        autoLogin.putString("inputPwd", pwd.getText().toString());
-                        //꼭 commit()을 해줘야 값이 저장된다
-                        autoLogin.commit();
-                        Toast.makeText(LoginActivity.this, id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(LoginActivity.this, "아이디와 비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
-                    }
+                if(firebaseAuth.getCurrentUser() != null){
+                    //로그인됐을때
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
-            });
+            }
+        };
 
-        }
+
+        mLoginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startSignIn();
+            }
+        });
 
         Button buttonChange = (Button) findViewById(R.id.RegisterButton);
         buttonChange.setOnClickListener(new View.OnClickListener() {
@@ -87,5 +76,37 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    private void startSignIn(){
+
+        String email = mEmailField.getText().toString();
+        String password = mPasswordField.getText().toString();
+
+        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+
+            Toast.makeText(LoginActivity.this, "Fields are Empty", Toast.LENGTH_LONG).show();
+
+        }else{
+
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "로그인 문제", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+        }
+
+
+
     }
 }
