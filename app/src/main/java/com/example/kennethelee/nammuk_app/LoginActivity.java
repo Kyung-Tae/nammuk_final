@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     //private String loginId, loginPwd;
 
     private FirebaseAuth mAuth;
-
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override

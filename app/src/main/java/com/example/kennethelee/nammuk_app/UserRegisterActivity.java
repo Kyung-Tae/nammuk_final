@@ -4,27 +4,30 @@ package com.example.kennethelee.nammuk_app;
  * Created by Kennethe Lee on 2017-04-24.
  */
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class UserRegisterActivity extends AppCompatActivity {
 
     final int REQ_CODE_SELECT_IMAGE=100;
     private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
     private Button buttonChange;
+    private ProgressDialog mProgress;
 
     //유저정보 변수
     private EditText mIDField;
@@ -36,8 +39,15 @@ public class UserRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userregister1);
 
+
         //데이터삽입을 위한..
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        //유저등록
+        mAuth = FirebaseAuth.getInstance();
+
+        //진행중 메세지 출력
+        mProgress = new ProgressDialog(this);
 
         //IDField
         mIDField = (EditText) findViewById(R.id.REmail);
@@ -55,6 +65,42 @@ public class UserRegisterActivity extends AppCompatActivity {
                 String user_id = mIDField.getText().toString().trim();
                 String user_pw = mPWField.getText().toString().trim();
                 String user_nname = mNNameField.getText().toString().trim();
+
+                if (!TextUtils.isEmpty(user_id) && !TextUtils.isEmpty(user_pw) && !TextUtils.isEmpty(user_nname)) {
+
+                    //진행중 메세지 출력
+                    mProgress.setMessage("Signing Up...");
+                    mProgress.show();
+
+                    mAuth.createUserWithEmailAndPassword(user_id, user_pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (task.isSuccessful()) {
+
+                                String original_user_id = mAuth.getCurrentUser().getUid();
+                                DatabaseReference current_user_db = mDatabase.child(original_user_id);
+
+                                current_user_db.child("email").setValue("default");
+                                current_user_db.child("nickname").setValue("default");
+                                current_user_db.child("sex").setValue("default");
+                                current_user_db.child("age").setValue("default");
+                                current_user_db.child("height").setValue("default");
+                                current_user_db.child("weight").setValue("default");
+
+                                mProgress.dismiss();
+
+                                Intent mainIntent = new Intent(UserRegisterActivity.this, LoginActivity.class);
+                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(mainIntent);
+
+                            }
+                        }
+                    });
+
+                }
+
+        /*
 
                 //어트리뷰트 묶어서 하나의 오브젝트로 넣기위해 묶기
                 HashMap<String, String> dataMap = new HashMap<String, String>();
@@ -78,11 +124,17 @@ public class UserRegisterActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(UserRegisterActivity.this, UserRegisterBodyInfoActivity.class);
                 startActivity(intent);
+
+                */
             }
 
         });
 
 
 
+
+
     }
 }
+
+
