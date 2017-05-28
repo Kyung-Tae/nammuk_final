@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +33,7 @@ public class UserRegisterActivity extends AppCompatActivity {
     //유저정보 변수
     private EditText mIDField;
     private EditText mPWField;
+    private EditText mPWConfirmField;
     private EditText mNNameField;
 
     @Override
@@ -52,6 +54,7 @@ public class UserRegisterActivity extends AppCompatActivity {
         //IDField
         mIDField = (EditText) findViewById(R.id.REmail);
         mPWField = (EditText) findViewById(R.id.RPassword);
+        mPWConfirmField = (EditText) findViewById(R.id.RConfirmPassword);
         mNNameField = (EditText) findViewById(R.id.RNickName);
 
         buttonChange = (Button) findViewById(R.id.NextButton);
@@ -62,70 +65,56 @@ public class UserRegisterActivity extends AppCompatActivity {
                 //2. assign some value to the child object
 
                 //넣고 싶은 필드 파싱해서 DB에 넣기
-                String user_id = mIDField.getText().toString().trim();
-                String user_pw = mPWField.getText().toString().trim();
-                String user_nname = mNNameField.getText().toString().trim();
+                final String user_id = mIDField.getText().toString().trim();
+                final String user_pw = mPWField.getText().toString().trim();
+                final String user_pw_confirm = mPWConfirmField.getText().toString().trim();
+                final String user_nname = mNNameField.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(user_id) && !TextUtils.isEmpty(user_pw) && !TextUtils.isEmpty(user_nname)) {
+                if(user_pw_confirm.equals(user_pw)) { //비밀번호와 비밀번호 확인이 같다면
+
+                    if (!TextUtils.isEmpty(user_id) && !TextUtils.isEmpty(user_pw) && !TextUtils.isEmpty(user_nname)) {
+
+                        //진행중 메세지 출력
+                        mProgress.setMessage("Signing Up...");
+                        mProgress.show();
+
+                        mAuth.createUserWithEmailAndPassword(user_id, user_pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                if (task.isSuccessful()) {
+
+                                        String original_user_id = mAuth.getCurrentUser().getUid();
+                                        DatabaseReference current_user_db = mDatabase.child(original_user_id);
+
+                                        current_user_db.child("email").setValue(user_id);
+                                        current_user_db.child("password").setValue(user_pw);
+                                        current_user_db.child("nickname").setValue(user_nname);
+
+                                        mProgress.dismiss();
+
+                                        Intent intent = new Intent(UserRegisterActivity.this, UserRegisterBodyInfoActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+
+                                }
+                            }
+                        });
+                    }
+
+                }else{ //비밀번호와 비밀번호 확인이 같지 않다면
 
                     //진행중 메세지 출력
                     mProgress.setMessage("Signing Up...");
                     mProgress.show();
 
-                    mAuth.createUserWithEmailAndPassword(user_id, user_pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()) {
-
-                                String original_user_id = mAuth.getCurrentUser().getUid();
-                                DatabaseReference current_user_db = mDatabase.child(original_user_id);
-
-                                current_user_db.child("email").setValue("default");
-                                current_user_db.child("nickname").setValue("default");
-                                current_user_db.child("sex").setValue("default");
-                                current_user_db.child("age").setValue("default");
-                                current_user_db.child("height").setValue("default");
-                                current_user_db.child("weight").setValue("default");
-
-                                mProgress.dismiss();
-
-                                Intent mainIntent = new Intent(UserRegisterActivity.this, LoginActivity.class);
-                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(mainIntent);
-
-                            }
-                        }
-                    });
+                    Toast.makeText(UserRegisterActivity.this, "비밀번호가 일치하지 않습니다", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(UserRegisterActivity.this, UserRegisterActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
 
                 }
 
-        /*
-
-                //어트리뷰트 묶어서 하나의 오브젝트로 넣기위해 묶기
-                HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("ID", user_id);
-                dataMap.put("Password", user_pw);
-                dataMap.put("Nickname", user_nname);
-
-                //잘 들어갔는지 메세지 출력하기
-                mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                        if(task.isSuccessful()){
-                            Toast.makeText(UserRegisterActivity.this, "저장 성공.", Toast.LENGTH_LONG).show();
-                        }else{
-                            Toast.makeText(UserRegisterActivity.this, "저장 실패.", Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-                });
-
-                Intent intent = new Intent(UserRegisterActivity.this, UserRegisterBodyInfoActivity.class);
-                startActivity(intent);
-
-                */
             }
 
         });
@@ -134,7 +123,9 @@ public class UserRegisterActivity extends AppCompatActivity {
 
 
 
+
     }
+
 }
 
 

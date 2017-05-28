@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "로그인 문제", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "아이디/비밀번호를 다시 확인해주세요.", Toast.LENGTH_LONG).show();
                     }
                 }
             });
