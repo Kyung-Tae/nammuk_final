@@ -6,24 +6,24 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/user_picture"
         android:layout_width="108dp"
         android:layout_height="0dp"
-        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintBottom_toTopOf="@+id/user_nickname"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="21dp"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/ic_launcher"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/user_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -61,7 +61,7 @@
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/textView17"
+        app:layout_constraintRight_toLeftOf="@+id/user_sex"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintHorizontal_bias="0.0"
@@ -79,7 +79,7 @@
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/textView9"
+        app:layout_constraintLeft_toRightOf="@+id/user_obesity"
         app:layout_constraintRight_toRightOf="@+id/toolbar_myinfo"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
@@ -125,7 +125,7 @@
         tools:layout_constraintRight_creator="1" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/myinfo_sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Sex"
@@ -133,34 +133,34 @@
         android:textStyle="bold"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/textView6"
+        app:layout_constraintRight_toRightOf="@+id/myinfo_height"
         android:layout_marginTop="19dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintLeft_toRightOf="@+id/textView6" />
+        app:layout_constraintLeft_toRightOf="@+id/myinfo_height" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/myinfo_age"
         android:layout_width="34dp"
         android:layout_height="0dp"
         android:layout_marginStart="17dp"
         android:text="@string/Age"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
-        app:layout_constraintRight_toLeftOf="@+id/textView18"
+        app:layout_constraintRight_toLeftOf="@+id/user_age"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintBottom_toBottomOf="@+id/user_age"
         android:layout_marginEnd="20dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/textView18"
+        app:layout_constraintTop_toTopOf="@+id/user_age"
         android:layout_marginLeft="17dp"
         android:layout_marginRight="20dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/myinfo_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Height"
@@ -168,27 +168,28 @@
         android:textStyle="bold"
         tools:layout_constraintTop_creator="1"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="11dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_age"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/imageView5"
-        android:layout_marginLeft="17dp" />
+        android:layout_marginLeft="8dp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/myinfo_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Weight"
         android:textColor="#ffffff"
         android:textStyle="bold"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_height"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/textView6" />
+        app:layout_constraintLeft_toLeftOf="@+id/myinfo_height"
+        android:layout_marginLeft="0dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/myinfo_bmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/BMI"
@@ -196,14 +197,14 @@
         android:textStyle="bold"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintRight_toRightOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/user_obesity"
+        app:layout_constraintRight_toRightOf="@+id/user_nickname"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="5dp"
-        app:layout_constraintLeft_toRightOf="@+id/textView2" />
+        app:layout_constraintLeft_toRightOf="@+id/user_nickname" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/user_obesity"
         android:layout_width="82dp"
         android:layout_height="22dp"
         android:background="@drawable/wrap_whiteborder"
@@ -216,32 +217,32 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         android:layout_marginStart="76dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintBottom_toBottomOf="@+id/myinfo_onedaycal"
         android:layout_marginEnd="76dp"
         app:layout_constraintRight_toRightOf="@+id/imageView5"
         android:layout_marginTop="22dp"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="23dp"
-        app:layout_constraintTop_toTopOf="@+id/textView21"
-        app:layout_constraintLeft_toRightOf="@+id/textView19"
+        app:layout_constraintTop_toTopOf="@+id/user_bmi"
+        app:layout_constraintLeft_toRightOf="@+id/user_height"
         android:layout_marginLeft="76dp"
         android:layout_marginRight="76dp" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/myinfo_onedaycal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/OneDayCalorie"
         android:textColor="#ffffff"
         android:textStyle="bold"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintBottom_toTopOf="@+id/user_onedaycal"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="5dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView9" />
+        app:layout_constraintLeft_toLeftOf="@+id/user_obesity" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/user_onedaycal"
         android:layout_width="0dp"
         android:layout_height="22dp"
         android:background="@drawable/wrap_whiteborder"
@@ -252,14 +253,14 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView23"
+        app:layout_constraintBottom_toBottomOf="@+id/user_achievecountcurrent"
         android:layout_marginEnd="1dp"
-        app:layout_constraintRight_toRightOf="@+id/textView21"
+        app:layout_constraintRight_toRightOf="@+id/user_bmi"
         android:layout_marginTop="127dp"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="127dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintLeft_toLeftOf="@+id/myinfo_onedaycal"
+        app:layout_constraintTop_toTopOf="@+id/user_nickname"
         android:layout_marginRight="1dp" />
 
     <ImageView
@@ -290,7 +291,7 @@
         android:layout_marginStart="43dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar2"
         android:layout_marginEnd="42dp"
-        app:layout_constraintRight_toRightOf="@+id/textView19"
+        app:layout_constraintRight_toRightOf="@+id/user_height"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView13"
@@ -298,7 +299,7 @@
         android:layout_marginRight="42dp" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/user_class"
         android:layout_width="35dp"
         android:layout_height="24dp"
         android:layout_marginLeft="8dp"
@@ -322,8 +323,8 @@
         android:text="@string/CurrentExp"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/textView7"
-        app:layout_constraintRight_toRightOf="@+id/textView11"
+        app:layout_constraintLeft_toRightOf="@+id/myinfo_weight"
+        app:layout_constraintRight_toRightOf="@+id/user_onedaycal"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
@@ -345,7 +346,7 @@
         android:layout_marginStart="8dp" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/user_achievecount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -359,7 +360,7 @@
         tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/user_achievecounttotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="9dp"
@@ -367,11 +368,11 @@
         android:text="@string/UserAchieveCountTotal"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
-        app:layout_constraintLeft_toRightOf="@+id/textView14" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/user_achievecount"
+        app:layout_constraintLeft_toRightOf="@+id/user_achievecount" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/user_sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -379,14 +380,14 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintBottom_toTopOf="@+id/user_age"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="5dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView18"
+        app:layout_constraintLeft_toLeftOf="@+id/user_age"
         android:layout_marginLeft="1dp" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/user_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -394,14 +395,14 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/myinfo_sex"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/textView4"
-        android:layout_marginLeft="27dp" />
+        app:layout_constraintLeft_toRightOf="@+id/myinfo_sex"
+        android:layout_marginLeft="39dp" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/user_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/UserHeight"
@@ -410,28 +411,28 @@
         tools:layout_constraintTop_creator="1"
         android:layout_marginStart="1dp"
         android:layout_marginTop="11dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/user_age"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/textView18"
-        android:layout_marginLeft="1dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/user_age"
+        android:layout_marginLeft="-1dp" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/user_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
+        android:layout_marginTop="7dp"
         android:text="@string/UserWeight"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="7dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:layout_constraintLeft_toLeftOf="@+id/user_height"
+        app:layout_constraintTop_toBottomOf="@+id/user_height"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/textView19"
-        android:layout_marginLeft="2dp" />
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/user_bmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
@@ -441,16 +442,17 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         android:layout_marginEnd="19dp"
-        app:layout_constraintRight_toRightOf="@+id/textView10"
-        android:layout_marginTop="19dp"
+        app:layout_constraintRight_toRightOf="@+id/myinfo_onedaycal"
+        android:layout_marginTop="18dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintLeft_toRightOf="@+id/textView8"
+        app:layout_constraintLeft_toRightOf="@+id/myinfo_bmi"
         android:layout_marginLeft="23dp"
-        android:layout_marginRight="19dp" />
+        android:layout_marginRight="19dp"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/user_achieverpercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
@@ -459,21 +461,21 @@
         android:text="@string/UserAchievePercent"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        app:layout_constraintRight_toLeftOf="@+id/textView15"
+        app:layout_constraintRight_toLeftOf="@+id/user_achievecounttotal"
         app:layout_constraintTop_toTopOf="@+id/progressBar2"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/user_achievecountcurrent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/UserAchieveCountCurrent"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView22"
-        app:layout_constraintLeft_toRightOf="@+id/textView15"
-        app:layout_constraintRight_toRightOf="@+id/textView15"
+        app:layout_constraintBaseline_toBaselineOf="@+id/user_achieverpercent"
+        app:layout_constraintLeft_toRightOf="@+id/user_achievecounttotal"
+        app:layout_constraintRight_toRightOf="@+id/user_achievecounttotal"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 

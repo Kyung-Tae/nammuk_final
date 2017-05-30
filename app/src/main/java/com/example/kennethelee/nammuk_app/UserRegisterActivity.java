@@ -85,7 +85,8 @@ public class UserRegisterActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                         String original_user_id = mAuth.getCurrentUser().getUid();
-                                        DatabaseReference current_user_db = mDatabase.child(original_user_id);
+
+                                        DatabaseReference current_user_db = mDatabase.child(original_user_id).child("UserInfo");
 
                                         current_user_db.child("email").setValue(user_id);
                                         current_user_db.child("password").setValue(user_pw);

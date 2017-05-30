@@ -76,10 +76,10 @@ public class UserRegisterBodyInfoActivity extends AppCompatActivity {
 
                 if(mMaleField.isChecked()){
                     //남자 선택되었다면
-                    user_sex = "Male";
+                    user_sex = "남성";
                 }else if(mFemaleField.isChecked()){
                     //여자 선택되었다면
-                    user_sex = "Female";
+                    user_sex = "여성";
                 }else{
                     //아무 것도 선택되지 않았다면
                     user_sex = "Null";
@@ -88,6 +88,12 @@ public class UserRegisterBodyInfoActivity extends AppCompatActivity {
                 String user_age = mAgeField.getText().toString().trim();
                 String user_height = mHeightField.getText().toString().trim();
                 String user_weight = mWeightField.getText().toString().trim();
+
+                //BMI 계산을 위한..
+                Double weight = Double.parseDouble(user_weight);
+                Double height = Double.parseDouble(user_height)/100;
+                Double user_bmi = weight / (height*height) / 0.1;
+
 
 
                 if (!TextUtils.isEmpty(user_sex) && !TextUtils.isEmpty(user_age) && !TextUtils.isEmpty(user_height)  && !TextUtils.isEmpty(user_weight)) {
@@ -101,12 +107,13 @@ public class UserRegisterBodyInfoActivity extends AppCompatActivity {
                         //유저가 로그인했으면
 
                         String original_user_id = mAuth.getCurrentUser().getUid();
-                        DatabaseReference current_user_db = mDatabase.child(original_user_id);
+                        DatabaseReference current_user_db = mDatabase.child(original_user_id).child("UserBodyInfo");
 
                         current_user_db.child("sex").setValue(user_sex);
                         current_user_db.child("age").setValue(user_age);
                         current_user_db.child("height").setValue(user_height);
                         current_user_db.child("weight").setValue(user_weight);
+                        current_user_db.child("bmi").setValue(user_bmi);
 
                         mProgress.dismiss();
 
