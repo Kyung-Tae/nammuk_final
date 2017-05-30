@@ -92,7 +92,8 @@ public class UserRegisterBodyInfoActivity extends AppCompatActivity {
                 //BMI 계산을 위한..
                 Double weight = Double.parseDouble(user_weight);
                 Double height = Double.parseDouble(user_height)/100;
-                Double user_bmi = weight / (height*height) / 0.1;
+                Double user_bmi = weight / (height*height);
+                user_bmi = Math.ceil(user_bmi);
 
 
 

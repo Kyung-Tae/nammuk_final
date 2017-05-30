@@ -20,6 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
@@ -34,6 +40,11 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fab,fab_food,fab_exer;
     private Animation fab_open,fab_close,rotate_forward,rotate_backward;
 
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    private TextView mUserIdView;
+    private TextView mUserClassView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +52,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
 
         //등록버튼
         fab = (FloatingActionButton) findViewById(add_fab);
@@ -135,6 +143,55 @@ public class MainActivity extends AppCompatActivity
                 .setIndex(series1Index)
                 .setDelay(10000)
                 .build());
+
+
+
+
+        //유저등록
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(mUser != null) {
+            //유저가 로그인했으면
+            String original_user_id = mAuth.getCurrentUser().getUid();
+
+            //데이터삽입을 위한..
+            mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(original_user_id).child("UserInfo");
+
+            mUserIdView = (TextView) findViewById(R.id.menu_userid);
+            mUserClassView = (TextView) findViewById(R.id.menu_userclass);
+
+
+            mDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                   // String userid = dataSnapshot.child("nickname").getValue().toString();
+                    //mUserIdView.setText(userid);
+
+                    //String userclass = dataSnapshot.child("class").getValue().toString();
+                   // mUserClassView.setText("계급 : 천사");
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+
+
+                }
+            });
+
+
+        }
+
+
+
+
+
+
+
+
     }
 
     @Override

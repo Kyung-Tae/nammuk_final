@@ -49,11 +49,11 @@ public class MyInfoActivity extends AppCompatActivity {
             //데이터삽입을 위한..
             mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(original_user_id).child("UserBodyInfo");
 
-            mSexView = (TextView) findViewById(R.id.user_sex);
-            mAgeView = (TextView) findViewById(R.id.user_age);
-            mHeightView = (TextView) findViewById(R.id.user_height);
-            mWeightView = (TextView) findViewById(R.id.user_weight);
-            mBMIView = (TextView) findViewById(R.id.user_bmi);
+            mSexView = (TextView) findViewById(R.id.myinfo_sex);
+            mAgeView = (TextView) findViewById(R.id.myinfo_age);
+            mHeightView = (TextView) findViewById(R.id.myinfo_height);
+            mWeightView = (TextView) findViewById(R.id.myinfo_weight);
+            mBMIView = (TextView) findViewById(R.id.myinfo_bmi);
             mObesityView = (TextView) findViewById(R.id.user_obesity);
             mDailyCalView = (TextView) findViewById(R.id.user_onedaycal);
 
@@ -62,20 +62,20 @@ public class MyInfoActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     String sex = dataSnapshot.child("sex").getValue().toString();
-                    mSexView.setText(sex);
+                    mSexView.setText("성별 : " + sex);
 
                     String age = dataSnapshot.child("age").getValue().toString();
-                    mAgeView.setText(age + "세");
+                    mAgeView.setText(age +"세");
 
                     String height = dataSnapshot.child("height").getValue().toString();
-                    mHeightView.setText(height + "cm");
+                    mHeightView.setText("키 : " + height + "cm");
 
                     String weight = dataSnapshot.child("weight").getValue().toString();
-                    mWeightView.setText(weight + "kg");
-/*
+                    mWeightView.setText("몸무게 : " +weight + "kg");
+
                     String bmi = dataSnapshot.child("bmi").getValue().toString();
-                    mBMIView.setText(bmi);
-*/
+                    mBMIView.setText("BMI : " + bmi);
+
                 }
 
                 @Override
@@ -85,10 +85,6 @@ public class MyInfoActivity extends AppCompatActivity {
 
                 }
             });
-
-
-
-
 
 
         }
