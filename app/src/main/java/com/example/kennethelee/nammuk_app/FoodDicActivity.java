@@ -4,18 +4,30 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.fatsecret.platform.model.CompactFood;
+import com.fatsecret.platform.model.CompactRecipe;
+import com.fatsecret.platform.model.Food;
+import com.fatsecret.platform.model.Recipe;
+import com.fatsecret.platform.services.Response;
+import com.fatsecret.platform.services.android.Request;
+import com.fatsecret.platform.services.android.ResponseListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 2017-05-21.
@@ -29,8 +41,15 @@ public class FoodDicActivity extends ListActivity {
     Button camerabtn;
     Button myfoodbtn;
     private Spinner spinner;
+    String key = "9a4581d764db42ff9846e68c6cf716b9";
+    String secret = "92719520bd1b49bbac9bc7605849e476";
+    String query;
+    EditText searchtext;
 
     protected void onCreate(Bundle savedInstanceState) {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        Listener listener = new Listener();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_dic);
 
@@ -71,7 +90,16 @@ public class FoodDicActivity extends ListActivity {
             @Override
             public void onClick(View view) {
                 //검색기능
-                Toast.makeText(FoodDicActivity.this, "검색기능입니다", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FoodDicActivity.this, "검색기능입니다", Toast.LENGTH_SHORT).show();
+                searchtext = (EditText) findViewById(R.id.SearchText);
+                query = searchtext.getText().toString();
+                if(TextUtils.isEmpty(query)){
+                    Toast.makeText(FoodDicActivity.this, "검색어가 없습니다", Toast.LENGTH_SHORT).show();
+                } else {
+                    //검색요청
+                    Request req = new Request(key, secret, listener);
+                    //req.getFoods(requestQueue, query);
+                }
             }
         });
 
@@ -166,7 +194,41 @@ public class FoodDicActivity extends ListActivity {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+    class Listener implements ResponseListener {
+        @Override
+        public void onFoodListRespone(Response<CompactFood> response) {
+            System.out.println("TOTAL FOOD ITEMS: " + response.getTotalResults());
 
+            List<CompactFood> foods = response.getResults();
+            //This list contains summary information about the food items
+
+            System.out.println("=========FOODS============");
+            for (CompactFood food: foods) {
+                System.out.println(food.getName());
+            }
+        }
+
+        @Override
+        public void onRecipeListRespone(Response<CompactRecipe> response) {
+            System.out.println("TOTAL RECIPES: " + response.getTotalResults());
+
+            List<CompactRecipe> recipes = response.getResults();
+            System.out.println("=========RECIPES==========");
+            for (CompactRecipe recipe: recipes) {
+                System.out.println(recipe.getName());
+            }
+        }
+
+        @Override
+        public void onFoodResponse(Food food) {
+            System.out.println("FOOD NAME: " + food.getName());
+        }
+
+        @Override
+        public void onRecipeResponse(Recipe recipe) {
+            System.out.println("RECIPE NAME: " + recipe.getName());
+        }
+    }
 }
 
 

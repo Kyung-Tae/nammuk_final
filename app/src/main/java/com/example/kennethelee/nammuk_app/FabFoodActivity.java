@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.List;
+
+
 /**
  * Created by speed on 2017-05-14.
  */
@@ -22,7 +25,9 @@ public class FabFoodActivity extends AppCompatActivity {
     Button CalendarBtn;
     Button homeBtn;
 
+
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fab_food);
 
@@ -32,14 +37,14 @@ public class FabFoodActivity extends AppCompatActivity {
         supperBtn = (Button) findViewById(R.id.button_fabfood_supperreg);
         homeBtn = (Button) findViewById(R.id.button_fabfood_home);
 
-        homeBtn.setOnClickListener(new Button.OnClickListener(){
+        homeBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
-        morningbtn.setOnClickListener(new Button.OnClickListener(){
+        morningbtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
@@ -49,7 +54,7 @@ public class FabFoodActivity extends AppCompatActivity {
             }
         });
 
-        lunchBtn.setOnClickListener(new Button.OnClickListener(){
+        lunchBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
@@ -59,7 +64,7 @@ public class FabFoodActivity extends AppCompatActivity {
             }
         });
 
-        dinnerBtn.setOnClickListener(new Button.OnClickListener(){
+        dinnerBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
@@ -69,7 +74,7 @@ public class FabFoodActivity extends AppCompatActivity {
             }
         });
 
-        supperBtn.setOnClickListener(new Button.OnClickListener(){
+        supperBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
@@ -80,7 +85,7 @@ public class FabFoodActivity extends AppCompatActivity {
         });
 
         CalendarBtn = (Button) findViewById(R.id.button_fabfood_date);
-        CalendarBtn.setOnClickListener(new Button.OnClickListener(){
+        CalendarBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //내 메뉴 만드는 레이아웃
@@ -93,4 +98,6 @@ public class FabFoodActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
