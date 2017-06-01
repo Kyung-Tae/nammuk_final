@@ -25,11 +25,14 @@ public class MyInfoActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+
+    private TextView mNicknameView;
     private TextView mSexView;
     private TextView mAgeView;
     private TextView mHeightView;
     private TextView mWeightView;
     private TextView mBMIView;
+
     private TextView mObesityView;
     private TextView mDailyCalView;
 
@@ -49,6 +52,7 @@ public class MyInfoActivity extends AppCompatActivity {
             //데이터삽입을 위한..
             mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(original_user_id).child("UserBodyInfo");
 
+            mNicknameView = (TextView) findViewById(R.id.user_nickname);
             mSexView = (TextView) findViewById(R.id.myinfo_sex);
             mAgeView = (TextView) findViewById(R.id.myinfo_age);
             mHeightView = (TextView) findViewById(R.id.myinfo_height);
@@ -60,6 +64,9 @@ public class MyInfoActivity extends AppCompatActivity {
             mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    //String nickname = dataSnapshot.child("nickname").getValue().toString();
+                    //mNicknameView.setText(nickname);
 
                     String sex = dataSnapshot.child("sex").getValue().toString();
                     mSexView.setText("성별 : " + sex);
@@ -75,6 +82,15 @@ public class MyInfoActivity extends AppCompatActivity {
 
                     String bmi = dataSnapshot.child("bmi").getValue().toString();
                     mBMIView.setText("BMI : " + bmi);
+
+                    Integer int_bmi = Integer.parseInt(bmi);
+                    String obesity = ObesityCheck(int_bmi);
+                    mObesityView.setText(obesity);
+
+                    Integer int_height = Integer.parseInt(height);
+                    Double user_dailycal = (int_height - 100) * 0.9 * 25;
+                    user_dailycal = Math.ceil(user_dailycal);
+                    mDailyCalView.setText(user_dailycal + " KCAL");
 
                 }
 
@@ -116,4 +132,38 @@ public class MyInfoActivity extends AppCompatActivity {
 
 
     }
+
+    public String ObesityCheck(Integer bmi){
+
+        String obesity;
+
+        if (bmi <= 18.5){
+            obesity = "저체중";
+
+            //저체중
+        }else if(bmi > 18.5 && bmi <= 23){
+            obesity = "정상";
+
+            //정상
+        }else if(bmi > 23 && bmi <= 25){
+            obesity = "과체중";
+
+            //과체중
+        }else if(bmi < 25 && bmi <= 30){
+            obesity = "비만";
+
+            //비만
+        }else{
+            obesity = "고도비만";
+            //고도비만
+        }
+
+        return  obesity;
+
+    }
+
+
+
+
+
 }

@@ -145,8 +145,6 @@ public class MainActivity extends AppCompatActivity
                 .build());
 
 
-
-
         //유저등록
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -166,8 +164,8 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                   // String userid = dataSnapshot.child("nickname").getValue().toString();
-                    //mUserIdView.setText(userid);
+                    //String usernickname = dataSnapshot.child("nickname").getValue().toString();
+                   // mUserIdView.setText(usernickname);
 
                     //String userclass = dataSnapshot.child("class").getValue().toString();
                    // mUserClassView.setText("계급 : 천사");
