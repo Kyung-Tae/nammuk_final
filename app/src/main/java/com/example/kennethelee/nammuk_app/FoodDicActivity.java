@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -46,6 +45,7 @@ public class FoodDicActivity extends ListActivity {
     String query;
     EditText searchtext;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         Listener listener = new Listener();
@@ -59,20 +59,20 @@ public class FoodDicActivity extends ListActivity {
 
         //list array로 받아서 보여주기(DB로 추후에 받아오는 것으로 변경해야함)
         //generate list
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("item1");
-        list.add("item2");
-        list.add("item3");
-        list.add("item4");
-        list.add("item5");
+        //ArrayList<String> list = new ArrayList<String>();
+//        list.add("item1");
+//        list.add("item2");
+//        list.add("item3");
+//        list.add("item4");
+//        list.add("item5");
 
         //instantiate custom adapter
-        MyCustomAdapter_withregister adapter = new MyCustomAdapter_withregister(list, this);
+        //MyCustomAdapter_withregister adapter = new MyCustomAdapter_withregister(list, this);
 
 
         //handle listview and assign adapter
-        ListView lView = (ListView)findViewById(android.R.id.list);
-        lView.setAdapter(adapter);
+        //ListView lView = (ListView)findViewById(list);
+        //lView.setAdapter(adapter);
 
 
         //취소 버튼은 나가기
@@ -98,7 +98,7 @@ public class FoodDicActivity extends ListActivity {
                 } else {
                     //검색요청
                     Request req = new Request(key, secret, listener);
-                    //req.getFoods(requestQueue, query);
+                    req.getFoods(requestQueue, query, 0);
                 }
             }
         });
@@ -201,11 +201,15 @@ public class FoodDicActivity extends ListActivity {
 
             List<CompactFood> foods = response.getResults();
             //This list contains summary information about the food items
-
+            ArrayList<String> list = new ArrayList<String>();
             System.out.println("=========FOODS============");
             for (CompactFood food: foods) {
+
+                list.add(foods.toString());
+
                 System.out.println(food.getName());
             }
+
         }
 
         @Override
@@ -229,6 +233,7 @@ public class FoodDicActivity extends ListActivity {
             System.out.println("RECIPE NAME: " + recipe.getName());
         }
     }
+
 }
 
 

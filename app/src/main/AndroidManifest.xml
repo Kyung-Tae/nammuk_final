@@ -208,6 +208,17 @@
             </intent-filter>
         </activity>
 
+        //FabFoodDicActivity_test 액티비티 등록
+        <activity android:name=".FoodDicActivity_test"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
 
 </application>
 

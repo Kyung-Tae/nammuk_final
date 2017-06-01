@@ -5,26 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="357dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        android:divider="@drawable/wrap_pinkborder"
-        android:dividerHeight="5.0sp"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView29"></ListView>
-
     <ImageView
         android:id="@+id/imageView29"
         android:layout_width="384dp"
         android:layout_height="52dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
         android:background="?attr/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -37,8 +21,6 @@
         android:layout_width="250dp"
         android:layout_height="34dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/wrap_whitebox"
         android:ems="10"
@@ -64,7 +46,7 @@
     <Button
         android:id="@+id/button_fooddic_cancel"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="80dp"
+        android:layout_width="88dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
@@ -76,7 +58,7 @@
     <Button
         android:id="@+id/button_fooddic_myfood"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="80dp"
+        android:layout_width="88dp"
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -91,8 +73,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="4dp"
         android:backgroundTint="@android:color/white"
         android:entries="@array/android_dropdown_arrays2"
@@ -108,32 +89,44 @@
         android:id="@+id/button_fooddic_search"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="9dp"
         android:background="@android:drawable/ic_menu_search"
         app:layout_constraintRight_toLeftOf="@+id/button_fooddic_makemy"
-        app:layout_constraintTop_toTopOf="@+id/imageView29" />
+        app:layout_constraintTop_toTopOf="@+id/imageView29"
+        android:layout_marginRight="6dp" />
 
     <Button
         android:id="@+id/button_fooddic_camera"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@android:drawable/ic_menu_camera"
         android:layout_marginRight="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="9dp"
+        android:background="@android:drawable/ic_menu_camera"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView29"
-        android:layout_marginTop="12dp" />
+        app:layout_constraintTop_toTopOf="@+id/imageView29" />
 
     <Button
         android:id="@+id/button_fooddic_makemy"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="9dp"
         android:background="@android:drawable/ic_menu_edit"
         app:layout_constraintRight_toLeftOf="@+id/button_fooddic_camera"
-        android:layout_marginRight="0dp"
-        android:layout_marginEnd="0dp"
         app:layout_constraintTop_toTopOf="@+id/imageView29"
-        android:layout_marginTop="12dp" />
+        android:layout_marginRight="6dp" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="android.support.v4.app.ListFragment"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView29"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintVertical_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

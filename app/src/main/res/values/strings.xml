@@ -154,5 +154,10 @@
     <!--fabexercisecalendar에 들어갈 string-->
     <string name="fabexercisecalendar">달력</string>
 
+    <!--fatsecret에 들어갈 string-->
+    <string name="load_more">더보기</string>
+    <string name="action_search">검색</string>
+    <string name="action_clear">취소</string>
+
 
 </resources>

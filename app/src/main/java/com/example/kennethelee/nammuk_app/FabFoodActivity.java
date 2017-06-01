@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.List;
-
 
 /**
  * Created by speed on 2017-05-14.
@@ -48,7 +46,9 @@ public class FabFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                //여기 수정해보는중
+                //Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity_test.class);
                 startActivity(intent);
 
             }
@@ -58,7 +58,9 @@ public class FabFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                //여기 수정해보는중
+                //Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity_test.class);
                 startActivity(intent);
 
             }
@@ -68,7 +70,9 @@ public class FabFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                //여기 수정해보는중
+                //Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity_test.class);
                 startActivity(intent);
 
             }
@@ -78,7 +82,9 @@ public class FabFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FabFoodActivity.this, "음식사전기능입니다", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                //여기 수정해보는중
+                //Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity.class);
+                Intent intent = new Intent(FabFoodActivity.this, FoodDicActivity_test.class);
                 startActivity(intent);
 
             }
