@@ -1,10 +1,12 @@
 package com.example.kennethelee.nammuk_app;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 public class MyInfoActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+    private DatabaseReference mphotoDatabase;
     private FirebaseAuth mAuth;
+    private Bitmap bitmap;
 
     private TextView mNicknameView;
     private TextView mSexView;
@@ -35,6 +39,8 @@ public class MyInfoActivity extends AppCompatActivity {
 
     private TextView mObesityView;
     private TextView mDailyCalView;
+
+    private ImageView mUserPictureView;
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -61,12 +67,12 @@ public class MyInfoActivity extends AppCompatActivity {
             mObesityView = (TextView) findViewById(R.id.user_obesity);
             mDailyCalView = (TextView) findViewById(R.id.user_onedaycal);
 
+            mUserPictureView = (ImageView) findViewById(R.id.user_picture);
+
             mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    //String nickname = dataSnapshot.child("nickname").getValue().toString();
-                    //mNicknameView.setText(nickname);
 
                     String sex = dataSnapshot.child("sex").getValue().toString();
                     mSexView.setText("성별 : " + sex);
@@ -83,7 +89,8 @@ public class MyInfoActivity extends AppCompatActivity {
                     String bmi = dataSnapshot.child("bmi").getValue().toString();
                     mBMIView.setText("BMI : " + bmi);
 
-                    Integer int_bmi = Integer.parseInt(bmi);
+                    Double double_bmi = Double.parseDouble(bmi);
+                    Integer int_bmi = double_bmi.intValue();
                     String obesity = ObesityCheck(int_bmi);
                     mObesityView.setText(obesity);
 
@@ -91,6 +98,7 @@ public class MyInfoActivity extends AppCompatActivity {
                     Double user_dailycal = (int_height - 100) * 0.9 * 25;
                     user_dailycal = Math.ceil(user_dailycal);
                     mDailyCalView.setText(user_dailycal + " KCAL");
+
 
                 }
 
@@ -103,6 +111,46 @@ public class MyInfoActivity extends AppCompatActivity {
             });
 
 
+/*
+            mphotoDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(original_user_id).child("UserInfo");
+
+            mphotoDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    String value = dataSnapshot.getValue().toString();
+                    String userpic = dataSnapshot.child("picture").getValue().toString();
+
+                    mphotoDatabase.child("userpic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            // Got the download URL for 'users/me/profile.png'
+                            //Uri에서 이미지 이름을 얻어온다.
+                            String name_Str = String.valueOf(uri);
+
+                            //이미지 데이터를 비트맵으로 받아온다.
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
+
+                            //배치해놓은 ImageView에 set
+                            mUserPictureView.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle any errors
+                        }
+                    });
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+*/
         }
 
 
@@ -132,6 +180,7 @@ public class MyInfoActivity extends AppCompatActivity {
 
 
     }
+
 
     public String ObesityCheck(Integer bmi){
 

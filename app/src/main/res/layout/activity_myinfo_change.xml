@@ -257,37 +257,38 @@
         android:layout_marginTop="79dp" />
 
     <RadioGroup
+        android:id="@+id/change_sexradiogroup"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginBottom="55dp"
         android:layout_marginTop="55dp"
         android:orientation="horizontal"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="@+id/change_age"
-        app:layout_constraintRight_toRightOf="@+id/change_nickname"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/change_nickname"
-        app:layout_constraintTop_toTopOf="@+id/change_nickname">
+        app:layout_constraintRight_toRightOf="@+id/change_nickname"
+        app:layout_constraintTop_toTopOf="@+id/change_nickname"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
         <RadioButton
             android:id="@+id/radio_male"
             android:layout_width="110dp"
             android:layout_height="match_parent"
             android:background="@drawable/wrap_blackborder"
+            android:buttonTint="#ff6161"
             android:checked="true"
             android:elevation="0dp"
-            android:text="@string/Man"
-            android:buttonTint="#ff6161" />
+            android:text="@string/Man" />
 
         <RadioButton
             android:id="@+id/radio_female"
             android:layout_width="110dp"
             android:layout_height="match_parent"
             android:background="@drawable/wrap_blackborder"
-            android:text="@string/Woman"
-            android:buttonTint="#ff6161" />
+            android:buttonTint="#ff6161"
+            android:text="@string/Woman" />
     </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
