@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +25,9 @@ import com.fatsecret.platform.services.android.Request;
 import com.fatsecret.platform.services.android.ResponseListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.example.kennethelee.nammuk_app.FatSecretSearch;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +48,11 @@ public class FoodDicActivity extends ListActivity {
     String secret = "92719520bd1b49bbac9bc7605849e476";
     String query;
     EditText searchtext;
+    String food_id;
+
+    FatSecretSearch search;
+    private JSONObject barcode_food;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +69,18 @@ public class FoodDicActivity extends ListActivity {
         //list array로 받아서 보여주기(DB로 추후에 받아오는 것으로 변경해야함)
         //generate list
         //ArrayList<String> list = new ArrayList<String>();
-//        list.add("item1");
-//        list.add("item2");
-//        list.add("item3");
-//        list.add("item4");
-//        list.add("item5");
+        //list.add("item1");
+        //list.add("item2");
+        //list.add("item3");
+        //list.add("item4");
+        //list.add("item5");
 
         //instantiate custom adapter
         //MyCustomAdapter_withregister adapter = new MyCustomAdapter_withregister(list, this);
 
 
         //handle listview and assign adapter
-        //ListView lView = (ListView)findViewById(list);
+        //ListView lView = (ListView)findViewById(android.R.id.list);
         //lView.setAdapter(adapter);
 
 
@@ -188,7 +197,18 @@ public class FoodDicActivity extends ListActivity {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
                 Log.d("MainActivity", "Scanned");
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+
+                food_id = result.getContents();
+                search = new FatSecretSearch();
+                barcode_food = new JSONObject();
+
+                barcode_food = search.searchFood(food_id,0);
+
+                Toast.makeText(this, "Scanned: " + barcode_food, Toast.LENGTH_LONG).show();
+
+
+                //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "Scanned: " + barcode_food, Toast.LENGTH_LONG).show();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -205,11 +225,13 @@ public class FoodDicActivity extends ListActivity {
             System.out.println("=========FOODS============");
             for (CompactFood food: foods) {
 
-                list.add(foods.toString());
-
+                //list.add(foods.toString());
+                list.add(food.getName());
                 System.out.println(food.getName());
             }
-
+            MyCustomAdapter_withregister adapter = new MyCustomAdapter_withregister(list, FoodDicActivity.this);
+            ListView lView = (ListView)findViewById(android.R.id.list);
+            lView.setAdapter(adapter);
         }
 
         @Override

@@ -24,6 +24,7 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -56,6 +57,7 @@ public class FatSecretSearchFragment extends Fragment {
 
     private View v; // Main content view
     private View mListViewFooter; // ListView Footer
+    Button cancelbtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -119,6 +121,7 @@ public class FatSecretSearchFragment extends Fragment {
     private EditText mSearch;
     private ListView mListView;
     private ProgressBar mProgressMore, mProgressSearch;
+    private Button cancel_btn;
 
     private void findViewsById() {
         mFatSecretSearch = new FatSecretSearch(); // method.search
@@ -135,6 +138,7 @@ public class FatSecretSearchFragment extends Fragment {
         mProgressSearch = (ProgressBar) v.findViewById(R.id.searchProgress);
         mProgressSearch.setVisibility(View.INVISIBLE);
         updateList();
+        cancel_btn = (Button) v.findViewById(R.id.button_fooddictest_cancel);
     }
 
     private SearchAdapter mSearchAdapter;
@@ -153,30 +157,30 @@ public class FatSecretSearchFragment extends Fragment {
     }
 
     private void toolbarTop() {
-        mToolbarTop.setTitle("Search");
-        mToolbarTop.setNavigationIcon(R.mipmap.ic_fat_secret);
-        mToolbarTop.inflateMenu(R.menu.menu_main);
-        mToolbarTop.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.action_search) {
-                    mToolbarSearch.setVisibility(View.VISIBLE);
-                    mToolbarSearch.bringToFront();
-                    mToolbarSearch.startAnimation(mFadeIn);
-                    mSearch.requestFocus();
-                    IS_SEARCH_VISIBLE = true;
-                    CURRENT_PAGE = 0;
-                    imm.toggleSoftInput(0, 0);
-                }
-                return false;
-            }
-        });
+        //mToolbarTop.setTitle("Search");
+        //mToolbarTop.setNavigationIcon(R.mipmap.ic_fat_secret);
+        //mToolbarTop.inflateMenu(R.menu.menu_main);
+//        mToolbarTop.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                int itemId = item.getItemId();
+//                if (itemId == R.id.action_search) {
+//                    mToolbarSearch.setVisibility(View.VISIBLE);
+//                    mToolbarSearch.bringToFront();
+//                    mToolbarSearch.startAnimation(mFadeIn);
+//                    mSearch.requestFocus();
+//                    IS_SEARCH_VISIBLE = true;
+//                    CURRENT_PAGE = 0;
+//                    imm.toggleSoftInput(0, 0);
+//                }
+//                return false;
+//            }
+//        });
     }
 
     private void toolbarSearch() {
-        mToolbarSearch.inflateMenu(R.menu.menu_search);
-        mToolbarSearch.setNavigationIcon(getResources().getDrawable(R.mipmap.ic_arrow_back));
+        //mToolbarSearch.inflateMenu(R.menu.menu_search);
+        //mToolbarSearch.setNavigationIcon(getResources().getDrawable(R.mipmap.ic_arrow_back));
         mToolbarSearch.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,7 +188,7 @@ public class FatSecretSearchFragment extends Fragment {
                 imm.hideSoftInputFromWindow(mSearch.getWindowToken(), 0);
                 mSearch.setText("");
                 mToolbarSearch.getMenu().clear();
-                mToolbarSearch.inflateMenu(R.menu.menu_search);
+                //mToolbarSearch.inflateMenu(R.menu.menu_search);
                 mToolbarTop.bringToFront();
                 mItem.clear();
                 mSearchAdapter.notifyDataSetChanged();
@@ -194,45 +198,46 @@ public class FatSecretSearchFragment extends Fragment {
                 updateList();
             }
         });
-        mToolbarSearch.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int menuItem = item.getItemId();
-                if (menuItem == R.id.action_voice) {
-                    promptSpeechInput();
-                }
-                if (menuItem == R.id.action_clear) {
-                    mSearch.setText("");
-                    SEARCH_RETAIN = false;
-                }
-                return false;
-            }
-        });
-        mSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() >= 1) {
-                    mToolbarSearch.getMenu().clear();
-                    mToolbarSearch.inflateMenu(R.menu.menu_search_clear);
-                } else {
-                    mToolbarSearch.getMenu().clear();
-                    mToolbarSearch.inflateMenu(R.menu.menu_search);
-                    mItem.clear();
-                    mSearchAdapter.notifyDataSetChanged();
-                    updateList();
-                    CURRENT_PAGE = 0;
-                    SEARCH_RETAIN = false;
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
+        //       mToolbarSearch.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                int menuItem = item.getItemId();
+//                if (menuItem == R.id.action_voice) {
+//                    promptSpeechInput();
+//                }
+//                if (menuItem == R.id.action_clear) {
+//                    mSearch.setText("");
+//                    SEARCH_RETAIN = false;
+//                }
+//                return false;
+//            }
+   //     });
+//        mSearch.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                if (s.length() >= 1) {
+//                    mToolbarSearch.getMenu().clear();
+//                    mToolbarSearch.inflateMenu(R.menu.menu_search_clear);
+//                } else {
+//                    mToolbarSearch.getMenu().clear();
+//                    mToolbarSearch.inflateMenu(R.menu.menu_search);
+//                    mItem.clear();
+//                    mSearchAdapter.notifyDataSetChanged();
+//                    updateList();
+//                    CURRENT_PAGE = 0;
+//                    SEARCH_RETAIN = false;
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//            }
+//        });
     }
 
     private void searchImplementation() {
