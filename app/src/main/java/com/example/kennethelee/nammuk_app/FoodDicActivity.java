@@ -44,8 +44,8 @@ public class FoodDicActivity extends ListActivity {
     Button camerabtn;
     Button myfoodbtn;
     private Spinner spinner;
-    String key = "9a4581d764db42ff9846e68c6cf716b9";
-    String secret = "92719520bd1b49bbac9bc7605849e476";
+    String key = "";
+    String secret = "";
     String query;
     EditText searchtext;
     String food_id;
